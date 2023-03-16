@@ -1,0 +1,39 @@
+<div class="animate__animated animate__fadeIn">
+
+    <h3>Region <small>{{regionActiva }}</small></h3>
+    <hr>
+    <h5>Seleccione la region</h5>
+    
+    <!-- [class.btn-primary]="region === regionActiva" -->
+    <div class="row">
+        <div class="col">
+            <button *ngFor="let region of regiones" [class]="getClaseCSS(region.toString())" (click)="activarRegion(region)"
+            
+            >
+            {{region}}
+        </button>
+    </div>
+</div>
+</div>
+<!-- <hr>
+<div class="row">
+    <div class="col">
+        <app-pais-input (onEnter)="Buscar($event)"  placeholder="Buscar Pais..."></app-pais-input>
+         <form (ngSubmit)="Buscar()" autocomplete="off" action="">
+            <input [(ngModel)]="termino" type="text" name="termino" class="form-control" placeholder="Buscar Pais">
+        </form>
+    </div>
+</div>
+ -->
+
+<hr>
+<div *ngIf="hayError" class="alert alert-danger">
+    No se encontro nada con el termino {{regionActiva}}
+</div>
+
+<div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
