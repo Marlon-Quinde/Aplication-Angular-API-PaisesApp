@@ -18,6 +18,7 @@ To deploy this project run
 
 ```bash
 nmp install
+npm run start
 ```
 
 
